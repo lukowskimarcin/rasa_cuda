@@ -29,3 +29,6 @@ RUN pip3 --no-cache-dir install -r /tmp/pip-tmp/requirements.txt && rm -rf /tmp/
 RUN python3 -m spacy info
 RUN python3 -m spacy download pl_core_news_sm
 RUN python3 -m spacy link pl_core_news_sm pl    
+
+RUN git config --global user.email "lukowskimarcin@gmail.com"
+RUN git config --global user.name  "Marcin"

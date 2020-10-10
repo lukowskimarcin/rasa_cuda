@@ -1,3 +1,5 @@
+pylint
+black
 rasa
 rasa[spacy]
 spacy
