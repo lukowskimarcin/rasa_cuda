@@ -1,5 +1,5 @@
-FROM tensorflow/tensorflow:latest-gpu
-#FROM tensorflow/tensorflow:1.15.4-gpu-py3
+#FROM tensorflow/tensorflow:latest-gpu
+FROM tensorflow/tensorflow:1.15.0-gpu-py3
 CMD nvidia-smi
 
 #set up environment
@@ -17,17 +17,17 @@ RUN apt-get update && apt-get install --no-install-recommends --no-install-sugge
     git \
     curl \
     libpq-dev \
-    python3.8 \
-    python3-setuptools \
-    python3-pip
+#    python3.8 \    
+    python3-pip \
+    python3-setuptools 
 
 # set python3.8 version
 #RUN whereis python3
-RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 100	
-RUN update-alternatives --set python3 /usr/bin/python3.8
+#RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 100	
+#RUN update-alternatives --set python3 /usr/bin/python3.8
 
 # pip + upgrade
-RUN python3 -m pip install --upgrade pip
+#RUN python3 -m pip install --upgrade pip
 
 RUN python3 --version
 RUN pip3 --version
