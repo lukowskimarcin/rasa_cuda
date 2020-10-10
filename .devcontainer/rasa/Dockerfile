@@ -1,9 +1,12 @@
-FROM nvidia/cuda:10.1-cudnn8-runtime-ubuntu18.04
+FROM tensorflow/tensorflow:latest-gpu
 CMD nvidia-smi
 
 #set up environment
 RUN apt-get update && apt-get install --no-install-recommends --no-install-suggests -y \
     git \
+    wget \
+    curl \
+    python-six \
     python3.8 \
     python3-setuptools \
     python3-pip
