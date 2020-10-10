@@ -1,4 +1,4 @@
-FROM nvidia/cuda:10.1-base
+FROM nvidia/cuda:10.1-runtime 
 CMD nvidia-smi
 
 #set up environment
