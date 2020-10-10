@@ -1,4 +1,4 @@
-version: '3'
+version: '3.8'
 services:  
   rasa_pl:
     build: 
@@ -8,6 +8,11 @@ services:
         # On Linux, you may need to update USER_UID and USER_GID below if not your local UID is not 1000.
         USER_UID: 1000
         USER_GID: 1000
+
+    command: nvidia-smi
+    device_requests:
+      - capabilities:
+          - gpu
 
     volumes:
       # Update this to wherever you want VS Code to mount the folder of your project
