@@ -1,7 +1,6 @@
-six
 pylint
 black
-rasa==1.10.14
+rasa
 rasa[spacy]
 spacy
 flask
