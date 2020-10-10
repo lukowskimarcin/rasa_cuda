@@ -1,0 +1,31 @@
+FROM nvidia/cuda:10.1-base
+CMD nvidia-smi
+
+#set up environment
+RUN apt-get update && apt-get install --no-install-recommends --no-install-suggests -y \
+    git \
+    python3.8 \
+    python3-setuptools \
+    python3-pip
+
+# set python3 version
+#RUN whereis python3
+RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 100	
+RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.6 2
+RUN update-alternatives --set python3 /usr/bin/python3.8
+
+# pip + upgrade
+RUN python3 -m pip install --upgrade pip
+
+RUN python3 --version
+RUN pip3 --version
+
+
+# instlacja bibliotek python
+COPY rasa/requirements.txt /tmp/pip-tmp/
+RUN pip3 --no-cache-dir install -r /tmp/pip-tmp/requirements.txt && rm -rf /tmp/pip-tmp
+
+
+RUN python3 -m spacy info
+RUN python3 -m spacy download pl_core_news_sm
+RUN python3 -m spacy link pl_core_news_sm pl    
