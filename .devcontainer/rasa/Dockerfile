@@ -3,18 +3,27 @@ CMD nvidia-smi
 
 #set up environment
 RUN apt-get update && apt-get install --no-install-recommends --no-install-suggests -y \
-    git \
+    build-essential \
     wget \
+    openssh-client \
+    graphviz-dev \
+    pkg-config \
+    openssl \
+    libssl-dev \
+    libffi6 \
+    libffi-dev \
+    libpng-dev
+    git \
     curl \
+    libpq-dev \
     python-six \
     python3.8 \
     python3-setuptools \
     python3-pip
 
 # set python3 version
-#RUN whereis python3
+RUN whereis python3
 RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 100	
-#RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.6 2
 RUN update-alternatives --set python3 /usr/bin/python3.8
 
 # pip + upgrade
