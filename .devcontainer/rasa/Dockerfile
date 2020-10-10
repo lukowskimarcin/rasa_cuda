@@ -1,6 +1,8 @@
 #FROM tensorflow/tensorflow:latest-gpu
-FROM tensorflow/tensorflow:1.15.0-gpu-py3
+FROM tensorflow/tensorflow:2.2.1-gpu-py3
 CMD nvidia-smi
+
+RUN python3 --version
 
 #set up environment
 RUN apt-get update && apt-get install --no-install-recommends --no-install-suggests -y \
